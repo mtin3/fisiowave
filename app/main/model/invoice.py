@@ -10,12 +10,11 @@ class Invoice(db.Model):
     date = db.Column(db.Date, nullable=False)
     patient_id = db.Column(db.Integer, db.ForeignKey("patient.id"))
     clinic_id = db.Column(db.Integer, db.ForeignKey("clinic.id"))
-    appointments = db.relationship('Appointment', backref='appointment', lazy=True)
-    subtotal = db.Column(db.Integer, nullable=False)
-    VAT = db.Column(db.Decimal, nullable=False)
-    total = db.Column(db.Integer, nullable=False)
+    subtotal = db.Column(db.Float, nullable=False)
+    VAT = db.Column(db.Float, nullable=False)
+    total = db.Column(db.Float, nullable=False)
     registered_on = db.Column(db.DateTime, nullable=False)
-
+    appointment = db.relationship('Appointment', backref='appointment', lazy=True)
 
     def __repr__(self):
         return "<Invoice '{}'>".format(self.name)

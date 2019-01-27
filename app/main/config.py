@@ -7,7 +7,7 @@ class Config:
 
 
 class DevelopmentConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://localhost/fisiowave'
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root@localhost/fisiowave'
     DEBUG = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -15,14 +15,14 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     DEBUG = True
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://localhost/fisiowave_test'
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root@localhost/fisiowave_test'
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ProductionConfig(Config):
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI ='mysql+mysqldb://localhost/fisiowave'
+    SQLALCHEMY_DATABASE_URI ='mysql+mysqldb://root@localhost/fisiowave'
 
 
 config_by_name = dict(
